@@ -62,7 +62,7 @@ public class PetStoreTest {
                 //.header("Content-Type", "application/json")
                 .contentType("application/json")
                 .body(petModel)
-                .post(Config.CREATE_PET)
+                .post(Config.CREATE_UPDATE_PET)
                 .then()
                 .log().all()
                 .statusCode(200);
@@ -116,7 +116,7 @@ public class PetStoreTest {
                 .header("accept", "application/json")
                 .header("Content-Type", "application/json")
                 .body(petJson)
-                .post(Config.CREATE_PET)
+                .post(Config.CREATE_UPDATE_PET)
                 .then()
                 .log().all()
                 .statusCode(200);
