@@ -4,9 +4,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import petstore.endpoints.PetEndpoint;
-import petstore.models.CategoryModel;
-import petstore.models.PetModel;
-import petstore.models.TagModel;
+import petstore.models.petModelPack.CategoryModel;
+import petstore.models.petModelPack.PetModel;
+import petstore.models.petModelPack.TagModel;
 
 public class PetUpdateTest {
 

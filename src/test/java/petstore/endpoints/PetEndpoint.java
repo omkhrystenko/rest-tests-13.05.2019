@@ -3,7 +3,7 @@ package petstore.endpoints;
 import io.restassured.RestAssured;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
-import petstore.models.PetModel;
+import petstore.models.petModelPack.PetModel;
 
 public class PetEndpoint {
 

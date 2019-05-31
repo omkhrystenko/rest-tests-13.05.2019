@@ -1,13 +1,10 @@
 package petstore.tests;
 
-import io.restassured.RestAssured;
-import io.restassured.response.ValidatableResponse;
 import org.junit.Test;
-import petstore.endpoints.Config;
 import petstore.endpoints.PetEndpoint;
-import petstore.models.CategoryModel;
-import petstore.models.PetModel;
-import petstore.models.TagModel;
+import petstore.models.petModelPack.CategoryModel;
+import petstore.models.petModelPack.PetModel;
+import petstore.models.petModelPack.TagModel;
 
 import static petstore.endpoints.PetEndpoint.*;
 
