@@ -1,6 +1,10 @@
 package petstore.tests;
 
+import net.serenitybdd.junit.runners.SerenityRunner;
+import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
+
+import org.junit.runner.RunWith;
 import petstore.endpoints.PetEndpoint;
 import petstore.models.petModelPack.CategoryModel;
 import petstore.models.petModelPack.PetModel;
@@ -8,8 +12,10 @@ import petstore.models.petModelPack.TagModel;
 
 import static petstore.endpoints.PetEndpoint.*;
 
+@RunWith(SerenityRunner.class)
 public class PetStoreTest {
 
+    @Steps //Эта аннотация дает знать serenity в каком классе находятся steps
   private PetEndpoint petEndpoint = new PetEndpoint();
 
   @Test
@@ -17,7 +23,7 @@ public class PetStoreTest {
         int petId = 2;
         petEndpoint
                 .getPetById(petId)
-                .statusCode(200);
+                .statusCode(400);
     }
 
     @Test
