@@ -1,11 +1,17 @@
 import io.restassured.RestAssured;
 import io.restassured.response.ValidatableResponse;
 import jdk.nashorn.internal.parser.JSONParser;
+import net.serenitybdd.junit.runners.SerenityRunner;
+import net.serenitybdd.rest.SerenityRest;
+import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
 import io.restassured.http.ContentType;
+import org.junit.runner.RunWith;
 
 import static org.hamcrest.Matchers.*;
 
+@RunWith(SerenityRunner.class)
 public class WeatherTest {
 
     @Test
@@ -14,7 +20,8 @@ public class WeatherTest {
 
         //lang=ua&return_id=1&q=Lviv
         String cityName = "Kharkiv";
-        ValidatableResponse response = RestAssured.given()
+
+        ValidatableResponse response = SerenityRest.given()//SerenityRest отвечает за попадание в отчет request (запросов)
                 .param("lang", "ua")
                 .param("return_id", 1)
                 .param("q", cityName)
@@ -34,7 +41,7 @@ public class WeatherTest {
         //Getting wheather in Lviv by Id
 
         //RestAssured.basePath = "pinformer4.php";
-        response = RestAssured.given()
+        response = SerenityRest.given()
                 .param("type", "js")
                 .param("lang", "ua")
                 .param("id", cityId)
@@ -50,7 +57,7 @@ public class WeatherTest {
                 .body("'{pcity}'", is(not(1)));// используем JsonPath with hamcrest matchers
         //Для сравнивания целого JSON используются JSON схемы, описующие наборы ключей и типов данных,
         //которые им соответствуют
-        System.out.println(response.extract().path("'{pcity}'"));
+        //System.out.println(response.extract().path("'{pcity}'"));
         System.out.println(response.extract().response().jsonPath().getString("$"));
         System.out.println(response.extract().response().jsonPath().getString("'{temp}'"));
 

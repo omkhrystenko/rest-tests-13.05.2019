@@ -16,7 +16,9 @@ import static petstore.endpoints.PetEndpoint.*;
 public class PetStoreTest {
 
     @Steps //Эта аннотация дает знать serenity в каком классе находятся steps
-  private PetEndpoint petEndpoint = new PetEndpoint();
+  private PetEndpoint petEndpoint;  // = new PetEndpoint(); аннотация @Steps дает возможность не создавть новый объект
+                                    // но при этом мы должны использовать аннотацию @RunWith(SerenityRunner.class). Также
+                                    //это дает возможность свормировать правильный отчет с красиво оформленными степами.
 
   @Test
     public void getPetByIdTest(){
