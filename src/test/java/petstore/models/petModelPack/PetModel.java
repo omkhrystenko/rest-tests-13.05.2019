@@ -4,12 +4,12 @@ public class PetModel {
 
     private int id;
     private CategoryModel category;
-    private String name;
+    private String  name;
     private String[] photoUrls;
     private TagModel[] tags;
     private String status;
 
-    public PetModel(int id, CategoryModel category, String name,
+    public PetModel(int id, CategoryModel category, String  name,
                     String[] photoUrls, TagModel[] tags, String status) {
         this.id = id;
         this.category = category;
@@ -27,7 +27,7 @@ public class PetModel {
         return category;
     }
 
-    public String getName() {
+    public String  getName() {
         return name;
     }
 
@@ -51,7 +51,7 @@ public class PetModel {
         this.category = category;
     }
 
-    public void setName(String name) {
+    public void setName(String  name) {
         this.name = name;
     }
 

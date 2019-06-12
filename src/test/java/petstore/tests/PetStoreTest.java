@@ -1,6 +1,7 @@
 package petstore.tests;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
 
