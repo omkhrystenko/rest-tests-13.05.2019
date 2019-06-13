@@ -13,7 +13,7 @@ import petstore.models.petModelPack.TagModel;
 
 @RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom(value="testPetNamesData.csv")
-public class PetNameValidationDataprovider {
+public class PetNameValidationDataprovTest {
 
     private String  name;
     private int expectedStatusCode;
