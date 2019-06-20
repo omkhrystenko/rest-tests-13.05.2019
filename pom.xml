@@ -17,6 +17,8 @@
         <source.encoding>UTF-8</source.encoding>
         <java.version>8</java.version>
         <surefire.version>2.20</surefire.version>
+        <test.name>*</test.name>
+        <env>qa</env> <!-- параметр для configProperties, он используется при  когда необходимо заменить маркер окружения, которое будет использоваться через консоль (указывая переменную -D) или через System.properties-->
     </properties>
 
     <build>
@@ -60,6 +62,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefire.version}</version>
                 <configuration>
+                    <includes>
+                        <include>**/tests/**/${test.name}.java</include>
+                    </includes>
                     <testFailureIgnore>true</testFailureIgnore> <!--выполнение тестов не останавливается на упавших тестах и доводится до конца -->
                     <skip>false</skip>
                 </configuration>

@@ -1,8 +1,11 @@
 package petstore.tests;
 
+import net.serenitybdd.junit.runners.SerenityRunner;
+import net.thucydides.junit.annotations.Concurrent;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import petstore.endpoints.PetEndpoint;
 import petstore.endpoints.StoreEndpoint;
 import petstore.models.petModelPack.CategoryModel;
@@ -12,6 +15,8 @@ import petstore.models.storeModelPack.StoreModel;
 
 import static org.hamcrest.Matchers.is;
 
+@Concurrent
+@RunWith(SerenityRunner.class)
 public class PetFindPurchaseOrderTest {
     private PetEndpoint petEndpoint = new PetEndpoint();
     private StoreEndpoint storeEndpoint = new StoreEndpoint();

@@ -1,13 +1,18 @@
 package petstore.tests;
 
+import net.serenitybdd.junit.runners.SerenityRunner;
+import net.thucydides.junit.annotations.Concurrent;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import petstore.endpoints.PetEndpoint;
 import petstore.models.petModelPack.CategoryModel;
 import petstore.models.petModelPack.PetModel;
 import petstore.models.petModelPack.TagModel;
 
+@Concurrent //позволяет запускать в многопоточности
+@RunWith(SerenityRunner.class)
 public class PetUpdateTest {
 
     private PetEndpoint petEndpoint = new PetEndpoint();

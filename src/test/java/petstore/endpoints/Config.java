@@ -1,7 +1,9 @@
 package petstore.endpoints;
 
+import petstore.ConfigProperties;
+
 public class Config {
-    final static String BASE_URI = "https://petstore.swagger.io/v2"; //не изменяемая, в одном єкземпляре, и живет пока жив программы
+    final static String BASE_URI = ConfigProperties.API_URL;
 
     final static String CREATE_PET = "pet";
     final static String GET_PET_BY_ID = "pet/{petId}";
@@ -12,4 +14,5 @@ public class Config {
     final static String STORE_PLACE_ORDER = "store/order";
     final static String DELETE_ORDER_BY_ID = "store/order/{orderId}";
     final static String FIND_ORDER_BY_ID = "store/order/{orderId}";
+    final static String UPLOAD_PET_IMAGE = "/pet/{petId}/uploadImage";
 }

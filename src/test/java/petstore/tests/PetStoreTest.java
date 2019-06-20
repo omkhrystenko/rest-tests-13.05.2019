@@ -3,6 +3,7 @@ package petstore.tests;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.junit.annotations.Concurrent;
 import org.junit.Test;
 
 import org.junit.runner.RunWith;
@@ -11,8 +12,12 @@ import petstore.models.petModelPack.CategoryModel;
 import petstore.models.petModelPack.PetModel;
 import petstore.models.petModelPack.TagModel;
 
+import java.io.File;
+
+import static org.hamcrest.Matchers.*;
 import static petstore.endpoints.PetEndpoint.*;
 
+@Concurrent //позволяет запускать в многопоточности
 @RunWith(SerenityRunner.class)
 public class PetStoreTest {
 
@@ -62,6 +67,19 @@ public class PetStoreTest {
             petEndpoint
                     .deletePet(petId)
                     .statusCode(200);
+    }
+
+    @Test
+    public void uploadPetImage(){
+
+        int petId =  87;
+        File petImage = new File(getClass().getClassLoader().getResource("crocodile.jpg").getFile());
+
+        petEndpoint
+                .uploadPetImage(petId, petImage)
+                .log().all()
+                .statusCode(200)
+                .body("message", containsString(petImage.getName()));
 
     }
 

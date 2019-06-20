@@ -5,12 +5,14 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.junit.annotations.Concurrent;
 import org.junit.Test;
 import io.restassured.http.ContentType;
 import org.junit.runner.RunWith;
 
 import static org.hamcrest.Matchers.*;
 
+@Concurrent //позволяет запускать в многопоточности
 @RunWith(SerenityRunner.class)
 public class WeatherTest {
 

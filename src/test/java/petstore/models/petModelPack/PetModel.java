@@ -19,6 +19,15 @@ public class PetModel {
         this.status = status;
     }
 
+    public PetModel(CategoryModel category, String name,
+                    String[] photoUrls, TagModel[] tags, String status) {
+        this.category = category;
+        this.name = name;
+        this.photoUrls = photoUrls;
+        this.tags = tags;
+        this.status = status;
+    }
+
     public int getId() {
         return id;
     }
